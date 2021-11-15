@@ -1,0 +1,3 @@
+#!/bin/bash
+echo PYCODE | main1.py
+./main1.py
