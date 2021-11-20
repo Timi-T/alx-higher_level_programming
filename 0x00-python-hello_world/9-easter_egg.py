@@ -1,2 +1,4 @@
 #!/usr/bin/python3
-print("{:s}".format("\"The Zen of Python\", by TimPeters"))
+import this
+if __name__ == "__main__":
+    print(this)
