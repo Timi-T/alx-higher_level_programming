@@ -24,8 +24,24 @@ list_addr *add_nodeaddr(list_addr *head, listint_t *address)
 	return (head);
 }
 
+/**
+ * free_addr - function to free linst_addr
+ *
+ * @head: poiter to head node of list
+ *
+ * Return: nothing
+ */
+void free_addr(list_addr *head)
+{
+	list_addr *current;
 
-
+	while(head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+}
 
 /**
  * check_cycle - function to check if a linked list is a cycle
@@ -34,7 +50,6 @@ list_addr *add_nodeaddr(list_addr *head, listint_t *address)
  *
  * Return: 0 if there is no cycle, 1 if there is a cycle
  */
-
 int check_cycle(listint_t *list)
 {
 	listint_t *list_copy = list;
@@ -49,15 +64,15 @@ int check_cycle(listint_t *list)
 		while (new_copy != NULL)
 		{
 			if(new_copy->address == list_copy->next)
+			{
+				free_addr(new);
 				return (1);
+			}
 			new_copy = new_copy->next;
 		}
 		list_copy = list_copy->next;
 		new = add_nodeaddr(new, list_copy);
-		if (list_copy == NULL)
-		{
-			return (0);
-		}
 	}
+	free_addr(new);
 	return (0);
 }
