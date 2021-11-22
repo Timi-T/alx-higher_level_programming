@@ -63,7 +63,6 @@ int is_palindrome(listint_t **head)
 		head_copy2 = (head_copy2)->next;
 		i++;
 	}
-	printf("rev-n: %d\n", rev->n);
 	free_listint(rev);
 	return (1);
 }
