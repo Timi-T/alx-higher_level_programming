@@ -40,25 +40,30 @@ listint_t *reverse(listint_t *head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *rev, *rev_copy;
-	listint_t **head_copy = head;
+	listint_t *head_copy = *head;
 	listint_t *head_copy2 = *head;
 	int i = 0;
 
 	rev = NULL;
-	while (*head_copy != NULL)
+	while (head_copy != NULL)
 	{
-		add_nodeint_end(&rev, (*head_copy)->n);
-		*head_copy = (*head_copy)->next;
+		add_nodeint_end(&rev, (head_copy)->n);
+		head_copy = (head_copy)->next;
 	}
 	rev = reverse(rev);
 	rev_copy = rev;
 	while (rev_copy != NULL)
 	{
 		if (rev_copy->n != (head_copy2)->n)
+		{
+			free_listint(rev);
 			return (0);
+		}
 		rev_copy = rev_copy->next;
 		head_copy2 = (head_copy2)->next;
 		i++;
 	}
+	printf("rev-n: %d\n", rev->n);
+	free_listint(rev);
 	return (1);
 }
