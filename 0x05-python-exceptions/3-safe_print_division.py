@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 def safe_print_division(a, b):
-#   c = 0
+    c = 0
     ex = 0
     try:
         c = (a / b)
- #   except Exception:
-#        ex = 1
+    except Exception:
+        ex = 1
     finally:
         if ex == 1:
             print("Inside result: {:s}".format('None'))
