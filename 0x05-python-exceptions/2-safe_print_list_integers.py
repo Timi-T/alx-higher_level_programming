@@ -15,8 +15,8 @@ def safe_print_list_integers(my_list=[], x=0):
             break
         except Exception:
             ex = 1
-        if ex != 1:
-            count = count + 1;
+        else:
+            count = count + 1
         i = i + 1
         x = x - 1
     if ie == 1:
