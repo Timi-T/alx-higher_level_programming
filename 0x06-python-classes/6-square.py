@@ -25,9 +25,9 @@ class Square:
         try:
             if type(position) is not tuple:
                 raise TypeError
-            if position[0] < 0:
+            if position[0] < 0 or type(position[0]) is tuple:
                 raise TypeError
-            if position[1] < 0:
+            if position[1] < 0 or type(position[1]) is tuple:
                 raise TypeError
             self.__position = position
         except TypeError:
@@ -72,9 +72,9 @@ class Square:
         try:
             if type(value) is not tuple:
                 raise TypeError
-            elif value[0] < 0:
+            elif value[0] < 0 or type(value[0]) is tuple:
                 raise TypeError
-            elif value[1] < 0:
+            elif value[1] < 0 or type(value[1]) is tuple:
                 raise TypeError
             else:
                 self.__position = value
