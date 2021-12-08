@@ -10,9 +10,8 @@ class Square:
     """
 
     def __init__(self, size=0):
-        pass
         """
-        Iinitializing element
+        Initializing element
         """
         try:
             if size < 0:
@@ -26,10 +25,16 @@ class Square:
 
     @property
     def size(self):
+        """
+        Getter
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """
+        Setter
+        """
         try:
             if value < 0:
                 raise ValueError
@@ -41,8 +46,16 @@ class Square:
         except ValueError:
             print("size must be >= 0")
             del self.__size
+
     @size.deleter
     def size(self):
+        """
+        Deleter
+        """
         self.__size = None
+
     def area(self):
+        """
+        Method to get area of instance
+        """
         return self.__size * self.__size
