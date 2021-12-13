@@ -1,4 +1,4 @@
-#!/usr/bin:Wq/python3
+#!/usr/bin/python3
 """
 module for defining a rectangle
 """
