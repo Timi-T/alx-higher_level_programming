@@ -1,4 +1,4 @@
-#!/usr/bin:Wq/python3
+#!/usr/bin/python3
 """
 module for defining a rectangle
 """
@@ -13,11 +13,11 @@ class Rectangle:
         """
         initialization of instance
         """
-        if type(width) != type(1):
+        if isinstance(width, int) is False:
             raise TypeError("width must be an integer")
         if width < 0:
             raise ValueError("width must be >= 0")
-        if type(height) != type(1):
+        if isinstance(height, int) is False:
             raise TypeError("height must be an integer")
         if height < 0:
             raise ValueError("height musts be >= 0")
@@ -43,7 +43,7 @@ class Rectangle:
         """
         setter for width
         """
-        if type(value) != type(1):
+        if isinstance(value, int) is False:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -54,7 +54,7 @@ class Rectangle:
         """
         setter for height
         """
-        if type(value) != type(1):
+        if isinstance(value, int) is False:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
