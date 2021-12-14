@@ -1,0 +1,66 @@
+Test file for text indentation
+==============================
+
+The function recieves a text and indent after characters ., : and ?
+
+Importing the module containing the function
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Testing the function
+--------------------
+
+1. When text is a string
+    >>> text_indentation("my name is opeyemi. i am exhausted from this honestly.arent you?...let me know if you do feel otherwise: bayo and nathan.")
+    my name is opeyemi.
+    <BLANKLINE>
+    i am exhausted from this honestly.
+    <BLANKLINE>
+    arent you?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    let me know if you do feel otherwise:
+    <BLANKLINE>
+    bayo and nathan.
+    <BLANKLINE>
+
+2. When the string is started and ends with a space and tab
+    >>> text_indentation("      my name is opeyemi. i am exhausted from this honestly.arent you?...let me know if you do feel otherwise: bayo and nathan.       ")
+    my name is opeyemi.
+    <BLANKLINE>
+    i am exhausted from this honestly.
+    <BLANKLINE>
+    arent you?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    let me know if you do feel otherwise:
+    <BLANKLINE>
+    bayo and nathan.
+    <BLANKLINE>
+
+3. When an empty string is passed
+    >>> text_indentation("")
+    <BLANKLINE>
+
+4. when an integer is passed
+    >>> text_indentation(1)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+5. When a single character is passed
+    >>> text_indentation('d')
+    d
+
+6. when a character is passed ending with a fullstop
+    >>> text_indentation('d.')
+    d.
+    <BLANKLINE>
