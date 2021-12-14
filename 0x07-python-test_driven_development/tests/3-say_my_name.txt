@@ -1,0 +1,38 @@
+Test file for say my name module
+================================
+
+The function takes in the first and last name and prints it out in a sentence.
+
+Importing the module
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Using the function
+------------------
+
+1.  When first name and last name are a string
+    >>> say_my_name("ope", "ogunbode")
+    My name is ope ogunbode
+
+    When first name is an integer
+    >>> say_my_name(5, "ogunbode")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    When last name is an integer
+    >>> say_my_name("opeyemi", 8)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    When None is passed
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    When last name is a list
+    >>> say_my_name("opeyemi", ["timilehin"])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    When a string is type casted and passed as an argument
+    >>> say_my_name(str(123), "ogunbode")
+    My name is 123 ogunbode
