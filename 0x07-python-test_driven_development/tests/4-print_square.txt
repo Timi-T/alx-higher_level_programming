@@ -1,0 +1,42 @@
+Test file for print square module
+=================================
+
+The function print_square prints a square given the length of side
+
+Importing the module
+    >>> print_square = __import__("4-print_square").print_square
+
+Using the print_square function
+-------------------------------
+
+1. When size is an integer
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+2. When size is an integer less than 0
+    >>> print_square(-7)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+3. When size is zero
+   >>> print_square(0)
+   <BLANKLINE>
+
+4. When size is a float
+    >>> print_square(5.7)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+5. When size is a negative float
+    >>> print_square(-5.7)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+6. When size is None
+    >>> print_square(None)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
