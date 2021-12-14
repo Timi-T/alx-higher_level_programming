@@ -1,0 +1,42 @@
+Test module for 0-add_integer.txt
+=================================
+
+using add_integer
+-----------------
+
+The add_integer function is tested using different inputs to the function and giving an expected output.
+Importing the function from its module
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Testing the function with different argument types
+1. Adding integers
+    >>> add_integer(4, 88)
+    92
+    >>> add_integer(7, int("406"))
+    413
+    >>> add_integer(0, 0)
+    0
+    >>> add_integer(25689723, -43766376)
+    -18076653
+
+2. Adding Floats
+    >>> add_integer(6.74, 5.76)
+    11
+    >>> add_integer(float("78.765376791"), 2)
+    80
+    >>> add_integer(-56.34, 6)
+    -50
+
+3. Adding strings and 'None'
+    >>> add_integer("opeyemi", 98)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer((4, 7), 6)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer((89, 89))
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer

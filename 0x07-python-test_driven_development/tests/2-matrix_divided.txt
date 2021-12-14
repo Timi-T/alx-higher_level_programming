@@ -1,0 +1,58 @@
+This is test file for function to divide matrix
+===============================================
+
+Using matrix_divided
+--------------------
+
+This testfile tests for various arguments to the function and ensures correct output
+
+Importing the function
+    >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Using the function
+1. Testing different inputs for div
+    when div is zero
+    >>> matrix_divided(([[2, 3, 4], [5, 6, 7]]), 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+    when div is a string
+    >>> matrix_divided(([[2, 3, 4], [5, 6, 7]]), 'ope')
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    when div is None
+    >>> matrix_divided(([[2, 3, 4], [5, 6, 7]]), None)
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    when div is a float
+    >>> matrix_divided(([[4.5, 3, 9], [6, 12, 3]]), 1.5)
+    [[3.0, 2.0, 6.0], [4.0, 8.0, 2.0]]
+
+    when div is an integer
+    >>> matrix_divided(([[2, 3, 4], [5, 6, 7]]), 1)
+    [[2.0, 3.0, 4.0], [5.0, 6.0, 7.0]]
+
+2. Testing different inputs for matrix
+    when matrix is not a list
+    >>> matrix_divided(5, 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    when matrix is a list that contains one string
+    >>> matrix_divided(([[2, 'y', 4], [5, 6, 7]]), 6)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided(([[2, 6, 4, 8], [5, 6, 7]]), 6)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+    when matrix elements have some floats
+    >>> matrix_divided(([[2, 6.4, 4.5], [5, 6, 7.9]]), 6)
+    [[0.33, 1.07, 0.75], [0.83, 1.0, 1.32]]
+
+    when all elements are integers
+    >>> matrix_divided(([[9, 5, 6], [89, 4, 34]]), 1)
+    [[9.0, 5.0, 6.0], [89.0, 4.0, 34.0]]
