@@ -8,7 +8,7 @@ def inherits_from(obj, a_class):
     """
     function to check if object inherits from class or superclass
     """
-    if issubclass(a_class, type(obj)):
-        return False
-    else:
+    if issubclass(a_class, type(obj)) == False:
         return True
+    else:
+        return False
