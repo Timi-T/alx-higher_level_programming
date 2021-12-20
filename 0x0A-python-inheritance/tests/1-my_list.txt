@@ -1,0 +1,12 @@
+This is a test file for list inheritance fuction
+================================================
+
+The function MyList inherits from list class and prints out a list in its sorted from
+-------------------------------------------------------------------------------------
+
+Importing the function
+----------------------
+
+    >>> print_sorted = __import__("1-my_list").print_sorted
+
+Testing the function...
