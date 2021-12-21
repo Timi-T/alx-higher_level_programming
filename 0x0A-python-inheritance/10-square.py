@@ -17,7 +17,7 @@ class Square(BaseGeometry):
 
     def area(self):
         return self.__size * self.__size
-"""
+
     def __repr__(self):
         print("[{}] {:d}/{:d}".format(self.__class__.__name__,
                                       self.__size, self.__size))
@@ -25,4 +25,3 @@ class Square(BaseGeometry):
     def __str__(self):
         return ("[{}] {:d}/{:d}".format(self.__class__.__name__,
                                         self.__size, self.__size))
-"""
