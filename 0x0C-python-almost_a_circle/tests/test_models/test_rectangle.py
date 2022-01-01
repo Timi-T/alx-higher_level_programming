@@ -235,3 +235,14 @@ class TestRectangle(unittest.TestCase):
             r11.update(id=7, width=2, y=-4, height=5)
         with self.assertRaises(ValueError):
             r11.update(id=7, width=2, y=12, height=5, x=-3)
+
+    """
+    Test for to_dictionary method
+    """
+    def test_08_to_dictionary(self):
+        """when an instance is passed to the method
+        """
+        r12 = Rectangle(3, 5, 7, 9)
+        to_dict = r12.to_dictionary()
+        dict_form = {'id': 11, 'width': 3, 'height': 5, 'x': 7, 'y': 9}
+        self.assertEqual(to_dict, dict_form)
