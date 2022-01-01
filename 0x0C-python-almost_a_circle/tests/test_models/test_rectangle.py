@@ -8,7 +8,7 @@ import unittest
 import sys
 
 
-sys.path.append('/home/opeyemi/circle/models')
+sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
 
 
 from rectangle import Rectangle

@@ -9,8 +9,8 @@ import sys
 import os
 
 
-sys.path.append('/home/opeyemi/circle/models')
-sys.path.append('/home/opeyemi/circle')
+sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
+sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle')
 
 
 from base import Base
@@ -56,8 +56,10 @@ class TestBase(unittest.TestCase):
         """when a dictionary with keys and values is passed
         """
         dictionaries = [{'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}]
-        self.assertEqual(Base.to_json_string(dictionaries),
-                '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]')
+        string_rep = Base.to_json_string(dictionaries)
+        dict_rep = json.loads(string_rep)
+        self.assertEqual(dict_rep,
+                [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}])
 
     """
     testing the save_to_file function with Rectangle instances
@@ -65,7 +67,7 @@ class TestBase(unittest.TestCase):
     def test_06_Base_Rectangle_save_to_file_None(self):
         """when list_objs is None
         """
-        rect_file_path = "/home/opeyemi/circle/Rectangle.json"
+        rect_file_path = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/Rectangle.json'
         Rectangle.save_to_file(None)
         with open(rect_file_path, 'r') as rect_file:
             file_content = rect_file.read()
@@ -74,7 +76,7 @@ class TestBase(unittest.TestCase):
     def test_07_Base_Rectangle_save_to_file_empty(self):
         """when list_objs is empty
         """
-        rect_file_path = "/home/opeyemi/circle/Rectangle.json"
+        rect_file_path = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/Rectangle.json'
         Rectangle.save_to_file([])
         with open(rect_file_path, 'r') as rect_file2:
             file_content2 = rect_file2.read()
@@ -83,7 +85,7 @@ class TestBase(unittest.TestCase):
     def test_08_Base_Rectangle_save_to_file_nonempty(self):
         """when list_objs is a list of rectangles
         """
-        rect_file_path = "/home/opeyemi/circle/Rectangle.json"
+        rect_file_path = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/Rectangle.json'
         rect1 = Rectangle(10, 7, 2, 8)
         rect2 = Rectangle(2, 4)
         Rectangle.save_to_file([rect1, rect2])
@@ -100,7 +102,7 @@ class TestBase(unittest.TestCase):
     def test_09_Base_Square_save_to_file_None(self):
         """when list_objs is None
         """
-        sqr_file_path = "/home/opeyemi/circle/Square.json"
+        sqr_file_path = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/Square.json'
         Square.save_to_file(None)
         with open(sqr_file_path, 'r') as sqr_file:
             file_content = sqr_file.read()
@@ -109,7 +111,7 @@ class TestBase(unittest.TestCase):
     def test_10_Base_Square_save_to_file_empty(self):
         """when list_objs is empty
         """
-        sqr_file_path = "/home/opeyemi/circle/Square.json"
+        sqr_file_path = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/Square.json'
         Square.save_to_file([])
         with open(sqr_file_path, 'r') as sqr_file2:
             file_content2 = sqr_file2.read()
@@ -117,7 +119,7 @@ class TestBase(unittest.TestCase):
     def test_11_Base_Square_save_to_file_nonempty(self):
         """when list_objs is a list of squares
         """
-        sqr_file_path = "/home/opeyemi/circle/Square.json"
+        sqr_file_path = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/Square.json'
         rect1 = Square(10, 7, 2)
         rect2 = Square(2, 4)
         Square.save_to_file([rect1, rect2])
@@ -179,7 +181,7 @@ class TestBase(unittest.TestCase):
     def test_17_Base_Rectangle_load_from_file_empty(self):
         """when file is empty
         """
-        with open("/home/opeyemi/circle/Rectangle.json", 'w') as rect_file:
+        with open('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/Rectangle.json', 'w') as rect_file:
             rect_file.write('')
         self.assertEqual(Rectangle.load_from_file(), [])
 
@@ -216,7 +218,7 @@ class TestBase(unittest.TestCase):
     def test_20_Base_Square_load_from_file_empty(self):
         """when file is empty
         """
-        with open("/home/opeyemi/circle/Square.json", 'w') as sqr_file:
+        with open('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/Square.json', 'w') as sqr_file:
             sqr_file.write('')
         self.assertEqual(Square.load_from_file(), [])
 

@@ -24,7 +24,6 @@ class Base:
     def to_json_string(list_dictionaries):
         if (list_dictionaries == None) or (len(list_dictionaries) == 0):
             return "[]"
-        #for dic in list_dictionaries:
         dic_str = json.dumps(list_dictionaries)
         return dic_str
 
