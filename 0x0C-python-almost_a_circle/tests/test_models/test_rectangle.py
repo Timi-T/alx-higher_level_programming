@@ -110,7 +110,7 @@ class TestRectangle(unittest.TestCase):
         """when x and y are 0
         """
         r5 = Rectangle(5, 3)
-        file_name = "/home/opeyemi/circle/print_test"
+        file_name = "/root/alx-higher_level_programming/0x0C-python-almost_a_circle/print_test"
         sys.stdout = open(file_name, 'w')
         r5.display()
         sys.stdout.close()
@@ -157,7 +157,7 @@ class TestRectangle(unittest.TestCase):
         """
         r9 = Rectangle(3, 4, 5, 6)
         print_object = '[Rectangle] (8) 5/6 - 3/4\n'
-        file_name = '/home/opeyemi/circle/test_str'
+        file_name = "/root/alx-higher_level_programming/0x0C-python-almost_a_circle/print_test"
         sys.stdout = open(file_name, 'w')
         print(r9)
         sys.stdout.close()
@@ -228,10 +228,10 @@ class TestRectangle(unittest.TestCase):
         """when wrong values are passed through kwargs
         """
         with self.assertRaises(ValueError):
-            r11.update(id=7, width="ope", y=12)
+            r11.update(id=7, width=0, y=12)
         with self.assertRaises(ValueError):
-            r11.update(id=7, width=2, y=False)
+            r11.update(id=7, width=2, y=4, height=-5)
         with self.assertRaises(ValueError):
-            r11.update(id=7, width=2, y=12, height=5.6)
+            r11.update(id=7, width=2, y=-4, height=5)
         with self.assertRaises(ValueError):
-            r11.update(id=7, width=2, y=12, height=5, x="ope")
+            r11.update(id=7, width=2, y=12, height=5, x=-3)
