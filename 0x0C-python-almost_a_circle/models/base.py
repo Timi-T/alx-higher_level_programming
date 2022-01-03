@@ -14,6 +14,8 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """class constructor method
+        """
         if id is not None:
             self.id = id
         else:
@@ -22,6 +24,8 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """method that converts a dictionary to the json representation
+        """
         if (list_dictionaries is None) or (len(list_dictionaries) == 0):
             return "[]"
         dic_str = json.dumps(list_dictionaries)
@@ -29,6 +33,8 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """method to save a json string to a file
+        """
         file_name = cls.__name__ + ".json"
         if (list_objs is None) or (len(list_objs) == 0):
             json_str = "[]"
@@ -42,6 +48,8 @@ class Base:
             f.write(json_str)
 
     def from_json_string(json_string):
+        """method that converts a json string to python representation
+        """
         if (json_string is None) or (len(json_string) == 0):
             json_list = []
         else:
@@ -50,6 +58,8 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """method to create an instance of this class
+        """
         r1 = cls(10, 10)
         instances = []
         r1.update(**dictionary)
@@ -57,6 +67,8 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """method to load a json string from a file
+        """
         instance_list = []
         file_name = cls.__name__ + ".json"
         try:
