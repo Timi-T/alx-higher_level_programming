@@ -8,10 +8,11 @@ import unittest
 import sys
 
 
-sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
+sys.path.append('/root/alx-higher_level_programming\
+/0x0C-python-almost_a_circle/models')
 
 
-from square import Square
+Square = __import__("square").Square
 
 
 class TestRectangle(unittest.TestCase):
@@ -96,7 +97,8 @@ class TestRectangle(unittest.TestCase):
         """when x and y are 0
         """
         r5 = Square(5)
-        file_name = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/test'
+        file_name = '/root/alx-higher_level_programming\
+/0x0C-python-almost_a_circle/test'
         sys.stdout = open(file_name, 'w')
         r5.display()
         sys.stdout.close()
@@ -143,7 +145,8 @@ class TestRectangle(unittest.TestCase):
         """
         r9 = Square(3, 4, 5, 13)
         print_object = '[Square] (13) 4/5 - 3\n'
-        file_name = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/test'
+        file_name = '/root/alx-higher_level_programming\
+/0x0C-python-almost_a_circle/test'
         sys.stdout = open(file_name, 'w')
         print(r9)
         sys.stdout.close()
