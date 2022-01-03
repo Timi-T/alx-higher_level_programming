@@ -14,7 +14,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        if id != None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
@@ -22,7 +22,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        if (list_dictionaries == None) or (len(list_dictionaries) == 0):
+        if (list_dictionaries is None) or (len(list_dictionaries) == 0):
             return "[]"
         dic_str = json.dumps(list_dictionaries)
         return dic_str
@@ -30,7 +30,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         file_name = cls.__name__ + ".json"
-        if (list_objs == None) or (len(list_objs) == 0):
+        if (list_objs is None) or (len(list_objs) == 0):
             json_str = "[]"
         else:
             list_of_dics = []
@@ -42,7 +42,7 @@ class Base:
             f.write(json_str)
 
     def from_json_string(json_string):
-        if (json_string == None) or (len(json_string) == 0):
+        if (json_string is None) or (len(json_string) == 0):
             json_list = []
         else:
             json_list = json.loads(json_string)
@@ -52,9 +52,7 @@ class Base:
     def create(cls, **dictionary):
         r1 = cls(10, 10)
         instances = []
-        #for dic in dictionary:
         r1.update(**dictionary)
-            #instances.append(r1)
         return r1
 
     @classmethod
