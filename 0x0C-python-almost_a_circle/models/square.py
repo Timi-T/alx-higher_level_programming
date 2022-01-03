@@ -12,24 +12,35 @@ class Square(Rectangle):
     class square which is a subclass of rectangle
     """
     def __init__(self, size, x=0, y=0, id=None):
+        """class constructor for square
+        """
         self.validate_dim(size, "width")
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        return "[{}] ({:d}) {:d}/{:d} - {:d}".format(self.__class__.__name__,
-                self.id, self.x, self.y, self.width)
+        """method to print instance
+        """
+        form = "[{}] ({:d}) {:d}/{:d} - {:d}"
+        name = self.__class__.__name__
+        return form.format(name, self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
+        """getter for size
+        """
         return self.width
 
     @size.setter
     def size(self, value):
+        """setter for size
+        """
         self.validate_dim(value, "width")
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
+        """method to update an instance using args and kwargs
+        """
         try:
             self.id = args[0]
             self.validate_dim(args[1], "width")
@@ -57,6 +68,8 @@ class Square(Rectangle):
                     self.y = value
 
     def to_dictionary(self):
+        """method to get the dictionary representation of an instance
+        """
         dic_rep = {}
         dic_rep["id"] = self.id
         dic_rep["size"] = self.width
