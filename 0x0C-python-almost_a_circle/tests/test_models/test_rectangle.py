@@ -45,11 +45,6 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, 5, 4, 6, True)
         self.assertRaises(TypeError, Rectangle, 5, 4, 6, "ope")
 
-        """checking the id when no id is given
-        """
-        r1 = Rectangle(3, 5, 7, 9)
-        self.assertEqual(r1.id, 1)
-
         """checking the id when an id is given
         """
         r2 = Rectangle(3, 5, 7, 9, 1999)
@@ -61,8 +56,8 @@ class TestRectangle(unittest.TestCase):
     def test_02_getter(self):
         """Testing getter for id, width, height, x and y
         """
-        r3 = Rectangle(3, 5, 7, 9)
-        self.assertEqual(r3.id, 2)
+        r3 = Rectangle(3, 5, 7, 9, 8)
+        self.assertEqual(r3.id, 8)
         self.assertEqual(r3.width, 3)
         self.assertEqual(r3.height, 5)
         self.assertEqual(r3.x, 7)
@@ -155,8 +150,8 @@ class TestRectangle(unittest.TestCase):
     def test_05_str(self):
         """printing the object
         """
-        r9 = Rectangle(3, 4, 5, 6)
-        print_object = '[Rectangle] (8) 5/6 - 3/4\n'
+        r9 = Rectangle(3, 4, 5, 6, 45)
+        print_object = '[Rectangle] (45) 5/6 - 3/4\n'
         file_name = "/root/alx-higher_level_programming/0x0C-python-almost_a_circle/print_test"
         sys.stdout = open(file_name, 'w')
         print(r9)
@@ -255,7 +250,7 @@ class TestRectangle(unittest.TestCase):
     def test_09_to_dictionary(self):
         """when an instance is passed to the method
         """
-        r13 = Rectangle(3, 5, 7, 9)
+        r13 = Rectangle(3, 5, 7, 9, 12)
         to_dict = r13.to_dictionary()
         dict_form = {'id': 12, 'width': 3, 'height': 5, 'x': 7, 'y': 9}
         self.assertEqual(to_dict, dict_form)

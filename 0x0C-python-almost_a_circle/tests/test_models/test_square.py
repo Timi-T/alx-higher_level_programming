@@ -39,11 +39,6 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Square, 5, 4, True)
         self.assertRaises(TypeError, Square, 5, 4, "ope")
 
-        """checking the id when no id is given
-        """
-        r1 = Square(3, 5, 7)
-        self.assertEqual(r1.id, 1)
-
         """checking the id when an id is given
         """
         r2 = Square(3, 5, 7, 9)
@@ -146,8 +141,8 @@ class TestRectangle(unittest.TestCase):
     def test_05_str(self):
         """printing the object
         """
-        r9 = Square(3, 4, 5)
-        print_object = '[Square] (6) 4/5 - 3\n'
+        r9 = Square(3, 4, 5, 13)
+        print_object = '[Square] (13) 4/5 - 3\n'
         file_name = '/root/alx-higher_level_programming/0x0C-python-almost_a_circle/test'
         sys.stdout = open(file_name, 'w')
         print(r9)
@@ -245,7 +240,7 @@ class TestRectangle(unittest.TestCase):
     def test_09_to_dictionary(self):
         """when an instance is passed to the method
         """
-        r13 = Square(3, 5, 7)
+        r13 = Square(3, 5, 7, 15)
         to_dict = r13.to_dictionary()
-        dict_form = {'id': 10, 'size': 3, 'x': 5, 'y': 7}
+        dict_form = {'id': 15, 'size': 3, 'x': 5, 'y': 7}
         self.assertEqual(to_dict, dict_form)
