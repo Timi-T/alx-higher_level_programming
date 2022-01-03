@@ -60,7 +60,7 @@ class Base:
     def create(cls, **dictionary):
         """method to create an instance of this class
         """
-        r1 = cls(10, 10, 10)
+        r1 = cls(10, 10)
         instances = []
         r1.update(**dictionary)
         return r1
