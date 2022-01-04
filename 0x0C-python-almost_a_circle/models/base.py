@@ -5,6 +5,7 @@ base class module
 
 
 import json
+import csv
 
 
 class Base:
@@ -60,7 +61,10 @@ class Base:
     def create(cls, **dictionary):
         """method to create an instance of this class
         """
-        r1 = cls(10, 10)
+        if cls.__name__ == "Square":
+            r1 = cls(10)
+        elif cls.__name__ == "Rectangle":
+            r1 = cls(10, 10)
         instances = []
         r1.update(**dictionary)
         return r1
@@ -81,3 +85,28 @@ class Base:
         except Exception:
             pass
         return instance_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save csv representation of a dict to a file
+        """
+        file_name = cls.__name__ + ".csv"
+        file_dir = "/root/alx-higher_level_programming\
+/0x0C-python-almost_a_circle/"
+        file_path = file_dir + file_name
+        print(file_path)
+        with open(file_path, 'w') as f:
+            d_writer = csv.writer(f, delimiter=',')
+            #for objs in list_objs:
+            d_writer.writerow(list(list_objs))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load from csv repr to python dict
+        """
+        file_name = cls.__name__ + ".csv"
+        file_path = "/root/alx-higher_level_programming\
+/0x0C-python-almost_a_circle/" + file_name
+        with open(file_path, 'r') as f:
+            file_content = f.read()
+            print(file_content)
