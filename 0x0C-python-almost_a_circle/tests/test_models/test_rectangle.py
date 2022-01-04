@@ -6,13 +6,7 @@ Test module for Rectangle functions
 
 import unittest
 import sys
-
-
-sys.path.append('/root/alx-higher_level_programming\
-/0x0C-python-almost_a_circle/models')
-
-
-Rectangle = __import__("rectangle").Rectangle
+from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):

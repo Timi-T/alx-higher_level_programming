@@ -5,19 +5,11 @@ Test module for base.py model
 
 
 import unittest
-import sys
-import os
 import json
-
-sys.path.append('/root/alx-higher_level_programming/\
-0x0C-python-almost_a_circle/models')
-sys.path.append('/root/alx-higher_level_programming/\
-0x0C-python-almost_a_circle')
-
-
-Base = __import__("base").Base
-Rectangle = __import__("rectangle").Rectangle
-Square = __import__("square").Square
+import os
+from models.base import Base
+from models.square import Square
+from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):
@@ -96,8 +88,8 @@ class TestBase(unittest.TestCase):
         with open(rect_file_path, 'r') as rect_file3:
             file_content3 = rect_file3.read()
         converted = json.loads(file_content3)
-        dict_1 = {"y": 8, "x": 2, "id": 1, "width": 10, "height": 7}
-        dict_2 = {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}
+        dict_1 = {"y": 8, "x": 2, "id": 2, "width": 10, "height": 7}
+        dict_2 = {"y": 0, "x": 0, "id": 3, "width": 2, "height": 4}
         act_list = []
         act_list.append(dict_1)
         act_list.append(dict_2)
@@ -137,8 +129,8 @@ class TestBase(unittest.TestCase):
         with open(sqr_file_path, 'r') as sqr_file3:
             file_content3 = sqr_file3.read()
         converted = json.loads(file_content3)
-        dict_1 = {"y": 2, "x": 7, "id": 3, "size": 10}
-        dict_2 = {"y": 0, "x": 4, "id": 4, "size": 2}
+        dict_1 = {"y": 2, "x": 7, "id": 4, "size": 10}
+        dict_2 = {"y": 0, "x": 4, "id": 5, "size": 2}
         act_list = []
         act_list.append(dict_1)
         act_list.append(dict_2)
@@ -211,7 +203,7 @@ class TestBase(unittest.TestCase):
         list_rectangles_input = [r1, r2]
         Rectangle.save_to_file(list_rectangles_input)
         output_list = Rectangle.load_from_file()
-        self.assertEqual((output_list[0]).id, 7)
+        self.assertEqual((output_list[0]).id, 8)
         self.assertEqual((output_list[0]).width, 10)
         self.assertEqual((output_list[0]).height, 7)
         self.assertEqual((output_list[0]).x, 2)
@@ -248,7 +240,7 @@ class TestBase(unittest.TestCase):
         input_list = [r1, r2]
         Square.save_to_file(input_list)
         output_list = Square.load_from_file()
-        self.assertEqual((output_list[0]).id, 10)
+        self.assertEqual((output_list[0]).id, 11)
         self.assertEqual((output_list[0]).size, 10)
         self.assertEqual((output_list[0]).x, 7)
         self.assertEqual((output_list[0]).y, 2)

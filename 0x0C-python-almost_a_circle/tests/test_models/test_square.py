@@ -6,13 +6,7 @@ Test module for Rectangle functions
 
 import unittest
 import sys
-
-
-sys.path.append('/root/alx-higher_level_programming\
-/0x0C-python-almost_a_circle/models')
-
-
-Square = __import__("square").Square
+from models.square import Square
 
 
 class TestRectangle(unittest.TestCase):
