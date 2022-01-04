@@ -97,7 +97,6 @@ class Base:
         print(file_path)
         with open(file_path, 'w') as f:
             d_writer = csv.writer(f, delimiter=',')
-            #for objs in list_objs:
             d_writer.writerow(list(list_objs))
 
     @classmethod
