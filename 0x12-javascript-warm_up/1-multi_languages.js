@@ -2,6 +2,6 @@
 
 const cVar = 'C is fun';
 const pyVar = 'Python is cool';
-const jaVar = 'Javascript is amazing';
+const jaVar = 'JavaScript is amazing';
 
 console.log(cVar + '\n' + pyVar + '\n' + jaVar);
