@@ -3,6 +3,7 @@
 const myArgs = process.argv.slice(2);
 let secondBiggest = 0;
 let newBiggest = 0;
+let same = 0;
 const arrayLen = myArgs.length;
 
 function max (a, b) {
@@ -37,28 +38,32 @@ if (arrayLen > 2) {
     b = Number(myArgs[i + 1]);
     c = Number(myArgs[i + 2]);
 
-    if (a === b) {
-      newBiggest = min(b, c);
-    } else if (a === c) {
-      newBiggest = min(a, b);
-    } else if (b === c) {
-      newBiggest = min(c, a);
+    if (a === b && b === c) {
+      same = 1;
     } else {
-      x = max(a, b);
-      if (x === a) {
-        y = max(a, c);
+      if (a === b) {
+        newBiggest = min(b, c);
+      } else if (a === c) {
+        newBiggest = min(a, b);
+      } else if (b === c) {
+        newBiggest = min(c, a);
       } else {
-        y = max(b, c);
-      }
-      if (y === a) {
-        secondBiggest = max(c, b);
-      } else if (y === c) {
-        secondBiggest = max(a, b);
-      } else if (y === b) {
-        secondBiggest = max(a, c);
-      }
-      if (secondBiggest > newBiggest) {
-        newBiggest = secondBiggest;
+        x = max(a, b);
+        if (x === a) {
+          y = max(a, c);
+        } else {
+          y = max(b, c);
+        }
+        if (y === a) {
+          secondBiggest = max(c, b);
+        } else if (y === c) {
+          secondBiggest = max(a, b);
+        } else if (y === b) {
+          secondBiggest = max(a, c);
+        }
+        if (secondBiggest > newBiggest) {
+          newBiggest = secondBiggest;
+        }
       }
     }
   }
