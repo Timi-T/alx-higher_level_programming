@@ -6,7 +6,15 @@ let newBiggest = 0;
 const arrayLen = myArgs.length;
 
 function max (a, b) {
-  if (a >= b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+function min (a, b) {
+  if (a < b) {
     return a;
   } else {
     return b;
@@ -29,21 +37,29 @@ if (arrayLen > 2) {
     b = Number(myArgs[i + 1]);
     c = Number(myArgs[i + 2]);
 
-    x = max(a, b);
-    if (x === a) {
-      y = max(a, c);
+    if (a === b) {
+      newBiggest = min(b, c);
+    } else if (a === c) {
+      newBiggest = min(a, b);
+    } else if (b === c) {
+      newBiggest = min(c, a);
     } else {
-      y = max(b, c);
-    }
-    if (y === a) {
-      secondBiggest = max(c, b);
-    } else if (y === c) {
-      secondBiggest = max(a, b);
-    } else if (y === b) {
-      secondBiggest = max(a, c);
-    }
-    if (secondBiggest > newBiggest) {
-      newBiggest = secondBiggest;
+      x = max(a, b);
+      if (x === a) {
+        y = max(a, c);
+      } else {
+        y = max(b, c);
+      }
+      if (y === a) {
+        secondBiggest = max(c, b);
+      } else if (y === c) {
+        secondBiggest = max(a, b);
+      } else if (y === b) {
+        secondBiggest = max(a, c);
+      }
+      if (secondBiggest > newBiggest) {
+        newBiggest = secondBiggest;
+      }
     }
   }
 }
