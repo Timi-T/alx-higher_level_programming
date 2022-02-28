@@ -2,10 +2,7 @@
 
 let myArgs = process.argv;
 if (myArgs[2]) {
-  myArgs = myArgs.slice(2);
-  myArgs.forEach(function (myArgs) {
-    console.log(myArgs);
-  });
+console.log(myArgs[2]);
 } else {
   console.log('No argument');
 }
