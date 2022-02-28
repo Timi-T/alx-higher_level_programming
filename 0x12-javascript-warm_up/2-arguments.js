@@ -1,9 +1,12 @@
 #!/usr/bin/node
 
 let myOutput;
-if (process.argv.length === 2) {
+myArgs = process.argv.slice(2);
+if (myArgs.length === 0) {
   myOutput = 'No argument';
-} else {
+} else if (myArgs.length === 1) {
   myOutput = 'Argument found';
+} else {
+  myOutput = 'Arguments found';
 }
 console.log(myOutput);
