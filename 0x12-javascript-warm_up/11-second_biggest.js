@@ -3,7 +3,6 @@
 const myArgs = process.argv.slice(2);
 let secondBiggest = 0;
 let newBiggest = 0;
-let same = 0;
 const arrayLen = myArgs.length;
 
 function max (a, b) {
@@ -39,7 +38,7 @@ if (arrayLen > 2) {
     c = Number(myArgs[i + 2]);
 
     if (a === b && b === c) {
-      same = 1;
+      continue;
     } else {
       if (a === b) {
         newBiggest = min(b, c);
