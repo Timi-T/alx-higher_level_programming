@@ -7,7 +7,7 @@ class Square extends Squared {
       let sq = '';
       for (let i = 0; i < this.height; i++) {
         for (let j = 0; j < this.width; j++) {
-          sq += 'C';
+          sq += c;
         }
         console.log(sq);
         sq = '';
