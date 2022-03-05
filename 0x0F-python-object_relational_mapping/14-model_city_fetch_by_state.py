@@ -18,6 +18,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    ct = session.query(City).filter(State.id.in_(Childtable.state.id)).all().order_by(City.id)
-    for city in ct:
-        print('{}: ({}) {}'.format(city.state.name, city.id, city.name))
+    ct = session.query(City, State).filter(City.state_id == State.id).all()
+    for city, state in ct:
+        print('{}: ({}) {}'.format(state.name, city.id, city.name))
