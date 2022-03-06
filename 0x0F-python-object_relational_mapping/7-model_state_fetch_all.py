@@ -15,10 +15,11 @@ if __name__ == "__main__":
 
     eng_txt = 'mysql+mysqldb://{}:{}@localhost/{}'.format(user, pwd, db_name)
     engine = create_engine(eng_txt, pool_pre_ping=True)
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).order_by(State.id)
+    states = session.query(State).order_by(State.id).all()
 
     for state in states:
         print(state.id, ': ' + state.name)
