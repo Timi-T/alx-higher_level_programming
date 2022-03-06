@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+prints first state object from the database
+"""
 
 import sys
 from model_state import Base, State
@@ -18,4 +20,4 @@ if __name__ == "__main__":
     session = Session()
 
     first_state = session.query(State).filter(State.id == 1).first()
-    print(first_state.id, ': ' + first_state.name)
+    print("{}: {}".format(first_state.id, first_state.name))
