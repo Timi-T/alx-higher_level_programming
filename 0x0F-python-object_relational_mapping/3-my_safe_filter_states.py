@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+module to prevent sql injection
+"""
 if __name__ == "__main__":
     import MySQLdb
     import sys
@@ -12,9 +14,9 @@ if __name__ == "__main__":
 
     mydb = MySQLdb.connect(user=username, passwd=password, db=db_name)
     db_cursor = mydb.cursor()
-    db_cursor.execute("SET @state_name = {}".format(state_name))
-    sql_txt = "SELECT * FROM states WHERE name=@state_name"
-    db_cursor.execute(sql_txt)
+    txt1 = "SELECT * FROM states WHERE "
+    txt2 = "name = {} ORDER BY states.id".format(state_name)
+    db_cursor.execute(txt1 + txt2)
     states = db_cursor.fetchall()
 
     for each_state in states:
