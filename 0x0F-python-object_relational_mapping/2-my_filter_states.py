@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+module to display states that match a name
+"""
 
 if __name__ == "__main__":
     import MySQLdb
