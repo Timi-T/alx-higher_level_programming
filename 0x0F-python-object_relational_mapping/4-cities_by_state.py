@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+"""
+module that lists all cities from a database
+"""
 
 if __name__ == "__main__":
     import MySQLdb
     import sys
-
 
     usr = sys.argv[1]
     pw = sys.argv[2]
@@ -11,8 +13,8 @@ if __name__ == "__main__":
 
     mydb = MySQLdb.connect(user=usr, passwd=pw, db=db_name)
     db_cursor = mydb.cursor()
-    txt1 = "SELECT state_id, cities.name, states.name FROM states"
-    txt2 = "INNER JOIN cities ON cities.state_id=states.id ORDER BY state_id"
+    txt1 = "SELECT cities.id, cities.name, states.name FROM cities"
+    txt2 = "LEFT JOIN states ON cities.state_id=states.id ORDER BY cities.id"
     sql_txt = txt1 + ' ' + txt2
     db_cursor = mydb.cursor()
     db_cursor.execute(sql_txt)
