@@ -3,16 +3,16 @@
 module to get state names from states table
 """
 
-import sys
-from model_state import State, Base
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import (create_engine)
-
-user = sys.argv[1]
-pwd = sys.argv[2]
-db_name = sys.argv[3]
-
 if __name__ == "__main__":
+    import sys
+    from model_state import State, Base
+    from sqlalchemy.orm import sessionmaker
+    from sqlalchemy import (create_engine)
+
+    user = sys.argv[1]
+    pwd = sys.argv[2]
+    db_name = sys.argv[3]
+
     eng_txt = 'mysql+mysqldb://{}:{}@localhost/{}'.format(user, pwd, db_name)
     engine = create_engine(eng_txt, pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
