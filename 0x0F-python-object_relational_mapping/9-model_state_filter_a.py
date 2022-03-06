@@ -9,7 +9,6 @@ if __name__ == "__main__":
     from sqlalchemy import (create_engine)
     from sqlalchemy.orm import sessionmaker
 
-
     user = sys.argv[1]
     pwd = sys.argv[2]
     db_name = sys.argv[3]
@@ -19,6 +18,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    A_states = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+    A_states = session.query(State).\
+        filter(State.name.like('%a%')).order_by(State.id).all()
     for state in A_states:
         print("{}: {}".format(state.id, state.name))
