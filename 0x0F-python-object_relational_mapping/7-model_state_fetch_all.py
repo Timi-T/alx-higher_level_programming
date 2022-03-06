@@ -5,7 +5,7 @@ module to get state names from states table
 
 if __name__ == "__main__":
     import sys
-    from model_state import State, Base
+    from model_state import Base, State
     from sqlalchemy.orm import sessionmaker
     from sqlalchemy import (create_engine)
 
@@ -22,4 +22,4 @@ if __name__ == "__main__":
     states = session.query(State).order_by(State.id).all()
 
     for state in states:
-        print(state.id, ': ' + state.name)
+        print("{}: {}".format(state.id, state.name))
