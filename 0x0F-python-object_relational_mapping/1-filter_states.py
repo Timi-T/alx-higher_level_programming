@@ -12,7 +12,8 @@ if __name__ == "__main__":
     password = sys.argv[2]
     db_name = sys.argv[3]
 
-    mydb = MySQLdb.connect(user=username, passwd=password, db=db_name)
+    mydb = MySQLdb.connect(host="localhost", port=3306,
+                           user=username, passwd=password, db=db_name)
     db_cursor = mydb.cursor()
     q = """SELECT * FROM states WHERE name REGEXP '^N' ORDER BY states.id"""
     db_cursor.execute(q)
