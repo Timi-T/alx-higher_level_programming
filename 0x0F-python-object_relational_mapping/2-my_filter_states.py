@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     mydb = MySQLdb.connect(user=username, passwd=password, db=db_name)
     db_cursor = mydb.cursor()
-    q = "SELECT * FROM states WHERE states.name = {}".format(state_name)
+    q = "SELECT * FROM states WHERE name LIKE BINARY {}".format(state_name)
     db_cursor.execute(q)
     states = db_cursor.fetchall()
 
