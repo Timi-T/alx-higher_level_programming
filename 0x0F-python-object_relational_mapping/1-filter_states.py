@@ -14,7 +14,8 @@ if __name__ == "__main__":
 
     mydb = MySQLdb.connect(user=username, passwd=password, db=db_name)
     db_cursor = mydb.cursor()
-    db_cursor.execute("""SELECT * FROM states WHERE name REGEXP '^N'""")
+    q = """SELECT * FROM states WHERE name REGEXP '^N' ORDER BY states.id"""
+    db_cursor.execute(q)
     table = db_cursor.fetchall()
 
     for row in table:
