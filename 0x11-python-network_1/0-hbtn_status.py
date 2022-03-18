@@ -9,5 +9,5 @@ if __name__ == "__main__":
 
     with urlopen("https://alx-intranet.hbtn.io/status") as response:
         body = response.read()
-    print('Body response:\n    - type: {}\n    - content: {}\n    - utf8 \
+    print('Body response:\n\t- type: {}\n\t- content: {}\n\t- utf8 \
 content: {}'.format(type(body), body, body.decode('utf-8')))
