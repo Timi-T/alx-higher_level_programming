@@ -10,10 +10,7 @@ if __name__ == "__main__":
 
     username = sys.argv[1]
     token = sys.argv[2]
-    url = 'https://api.github.com/users/'
-    try:
-        my_profile = requests.get(url+username, auth=(username, token))
-        my_info = my_profile.json()
-        print(my_info['id'])
-    except KeyError:
-        print('None')
+    url = 'https://api.github.com/user'
+    my_profile = requests.get(url, auth=(username, token))
+    my_info = my_profile.json()
+    print(my_info.get('id'))
