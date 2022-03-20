@@ -16,4 +16,4 @@ if __name__ == "__main__":
         my_info = my_profile.json()
         print(my_info['id'])
     except KeyError:
-        print(None)
+        print('None')
