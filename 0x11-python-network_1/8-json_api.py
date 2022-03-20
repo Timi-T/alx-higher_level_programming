@@ -14,5 +14,12 @@ if __name__ == "__main__":
     except IndexError:
         letter = ""
     response = requests.post(url, params={'q': letter})
-    info = response.content
-    print(info)
+    try:
+        if response.json():
+            resp_id = response.json().get('id')
+            resp_name = response.json().get('name')
+            print("[{}] {}".format(resp_id, resp_name))
+        else:
+            print('No result')
+    except ValueError:
+        print('Not a valid JSON')
