@@ -7,6 +7,5 @@ const content = (process.argv)[3];
 fs.writeFile(path, content, err => {
   if (err) {
     console.log(err);
-    return;
   }
 });
